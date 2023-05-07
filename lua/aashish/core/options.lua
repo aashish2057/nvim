@@ -20,7 +20,7 @@ opt.smartcase = true
 
 -- apperance
 opt.termguicolors = true
-opt.background = "dark"
+opt.background = ""
 opt.signcolumn = "yes"
 
 -- backspace
