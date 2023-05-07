@@ -19,12 +19,14 @@ local plugins = {
 
 	-- Color Scheme when you get bored use kanagawa
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
+		--	"catppuccin/nvim",
+		--	name = "catppuccin",
+		"rebelot/kanagawa.nvim",
+		name = "kanagawa",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme catppuccin]])
+			vim.cmd([[colorscheme kanagawa-wave]])
 		end,
 	},
 
