@@ -1,6 +1,6 @@
 require("aashish.core.options")
 require("aashish.core.keymaps")
-require("aashish.core.colorscheme")
+--require("aashish.core.colorscheme")
 
 require("aashish.plugins-setup")
 require("aashish.plugins.comment")

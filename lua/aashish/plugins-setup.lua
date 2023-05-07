@@ -1,105 +1,95 @@
--- auto install packer if not installed
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-		return true
-	end
-	return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
-vim.cmd([[packadd packer.nvim]])
-
--- autocommand that reloads neovim and installs/updates/removes plugins
--- when file is saved
-vim.cmd([[ 
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
-  augroup end
-]])
-
--- import packer safely
-local status, packer = pcall(require, "packer")
-if not status then
-	return
-end
+vim.opt.rtp:prepend(lazypath)
 
 -- ALL THE PLUGIN MADNESS
 -- need to do git plugins
-return packer.startup(function(use)
-	-- Packer
-	use("wbthomason/packer.nvim")
-
+local plugins = {
 	-- plugin that many other plugins use
-	use("nvim-lua/plenary.nvim")
+	"nvim-lua/plenary.nvim",
 
 	-- Color Scheme when you get bored use kanagawa
-	use({ "catppuccin/nvim", as = "catppuccin" })
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd([[colorscheme catppuccin]])
+		end,
+	},
 
 	-- allow for quickly add quotes parenthesis and others arround things
-	use("tpope/vim-surround")
+	"tpope/vim-surround",
 
 	-- allow replacing words with what is copied
-	use("vim-scripts/ReplaceWithRegister")
+	"vim-scripts/ReplaceWithRegister",
 
 	-- makes commenting easier
-	use("numToStr/Comment.nvim")
+	"numToStr/Comment.nvim",
 
 	-- file tree
-	use("nvim-tree/nvim-tree.lua")
+	"nvim-tree/nvim-tree.lua",
 
 	-- icons
-	use("nvim-tree/nvim-web-devicons")
+	"nvim-tree/nvim-web-devicons",
 
 	-- status line
-	use("nvim-lualine/lualine.nvim")
+	"nvim-lualine/lualine.nvim",
 
 	-- fuzzy finding telescope
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{ "nvim-telescope/telescope.nvim", branch = "0.1.x" },
 
 	-- autocompletion
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
 
 	-- snippets
-	use("L3MON4D3/LuaSnip")
-	use("saadparwaiz1/cmp_luasnip")
-	use("rafamadriz/friendly-snippets")
+	"L3MON4D3/LuaSnip",
+	"saadparwaiz1/cmp_luasnip",
+	"rafamadriz/friendly-snippets",
 
 	-- managing and installing LSP servers
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
 
 	-- configuring LSP servers
-	use("neovim/nvim-lspconfig")
-	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({
+	"neovim/nvim-lspconfig",
+	"hrsh7th/cmp-nvim-lsp", -- for autocompletion
+	{
 		"glepnir/lspsaga.nvim",
 		branch = "main",
-	}) -- enhanced lsp uis
-	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+	}, -- enhanced lsp uis
+	"onsails/lspkind.nvim", -- vs-code like icons for autocompletion
 
 	-- code formatting and linting
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("jayp0521/mason-null-ls.nvim")
+	"jose-elias-alvarez/null-ls.nvim",
+	"jayp0521/mason-null-ls.nvim",
 
 	-- treesitter
-	use({
+	{
 		"nvim-treesitter/nvim-treesitter",
-		run = function()
+		build = function()
 			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
 			ts_update()
 		end,
-	})
+	},
 
 	-- auto closing
-	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
-	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+	"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
+	"windwp/nvim-ts-autotag", -- autoclose tags
+}
 
-	if packer_bootstrap then
-		require("packer").sync()
-	end
-end)
+local opts = {}
+require("lazy").setup(plugins, opts)
