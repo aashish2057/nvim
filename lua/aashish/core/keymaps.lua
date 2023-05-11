@@ -28,3 +28,4 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 -- barbar keymaps
 keymap.set("n", "<PageUp>", "<cmd>BufferNext<cr>")
 keymap.set("n", "<PageDown>", "<cmd>BufferPrevious<cr>")
+keymap.set("n", "<leader>x", "<cmd>BufferClose<cr>")
