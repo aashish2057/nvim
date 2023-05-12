@@ -12,7 +12,8 @@ opt.shiftwidth = 4
 opt.expandtab = true
 
 -- line wrapping
-opt.wrap = false
+opt.wrap = true
+opt.linebreak = true
 
 -- search setttings
 opt.ignorecase = true

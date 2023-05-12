@@ -1,6 +1,6 @@
 local setup, nvimtree = pcall(require, "nvim-tree")
 if not setup then
-    return
+	return
 end
 
 -- disable netrw at the very start of your init.lua (strongly advised)
@@ -12,13 +12,13 @@ vim.opt.termguicolors = true
 
 -- OR setup with some options
 nvimtree.setup({
-  view = {
-    width = 30,
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
+	view = {
+		width = 30,
+	},
+	renderer = {
+		group_empty = true,
+	},
+	filters = {
+		dotfiles = false,
+	},
 })
