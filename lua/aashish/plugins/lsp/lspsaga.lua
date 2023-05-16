@@ -15,7 +15,12 @@ saga.setup({
 			normal_bg = "#022746",
 		},
 	},
-	codeAction = {
-		disableRuleComment = { enable = false },
+	code_action = {
+		keys = {
+			quit = "q",
+		},
+	},
+	lightbulb = {
+		enable = false,
 	},
 })
