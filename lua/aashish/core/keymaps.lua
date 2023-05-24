@@ -29,3 +29,9 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 keymap.set("n", "<PageUp>", "<cmd>BufferNext<cr>")
 keymap.set("n", "<PageDown>", "<cmd>BufferPrevious<cr>")
 keymap.set("n", "<leader>x", "<cmd>BufferClose<cr>")
+
+-- vim tmux keymaps
+keymap.set("n", "<C-h>", "<cmd> TmuxNavigateLeft<cr>")
+keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<cr>")
+keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<cr>")
+keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<cr>")
