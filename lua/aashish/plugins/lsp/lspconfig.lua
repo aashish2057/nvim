@@ -60,7 +60,17 @@ lspconfig["rust_analyzer"].setup({
 	},
 })
 
-lspconfig["jedi_language_server"].setup({
+lspconfig["yamlls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["gopls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["pyright"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
