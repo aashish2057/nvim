@@ -9,6 +9,7 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 -- ALL THE PLUGIN MADNESS
@@ -115,6 +116,12 @@ local plugins = {
 	-- tmux
 	{
 		"christoomey/vim-tmux-navigator",
+		lazy = false,
+	},
+
+	-- coding time tracking
+	{
+		"wakatime/vim-wakatime",
 		lazy = false,
 	},
 }
