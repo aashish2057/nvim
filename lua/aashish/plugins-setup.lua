@@ -124,6 +124,9 @@ local plugins = {
 		"wakatime/vim-wakatime",
 		lazy = false,
 	},
+
+	-- lsp lines for better error messages
+	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 }
 local opts = {}
 require("lazy").setup(plugins, opts)

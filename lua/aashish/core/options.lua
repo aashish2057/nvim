@@ -1,5 +1,5 @@
 local opt = vim.opt
-
+local diagnostic = vim.diagnostic
 -- line numbers
 opt.relativenumber = true
 opt.number = true
@@ -36,3 +36,6 @@ opt.splitbelow = true
 
 -- text deleting
 opt.iskeyword:append("-")
+
+-- lsp lines
+diagnostic.config({ virtual_text = false, virtual_lines = { only_current_line = true } })
