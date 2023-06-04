@@ -25,12 +25,8 @@ local plugins = {
 		-- "rebelot/kanagawa.nvim",
 		-- name = "kanagawa",
 		"AlexvZyl/nordic.nvim",
-		name = nordic,
 		lazy = false,
 		priority = 1000,
-		config = function()
-			vim.cmd([[colorscheme nordic]])
-		end,
 	}, -- allow for quickly add quotes parenthesis and others arround things "tpope/vim-surround", allow replacing words with what is copied "vim-scripts/ReplaceWithRegister",
 	-- makes commenting easier
 	"numToStr/Comment.nvim",
@@ -122,6 +118,12 @@ local plugins = {
 
 	-- lsp lines for better error messages
 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+
+	-- turn background transparent
+	-- {
+	-- 	"xiyaowong/transparent.nvim",
+	-- 	lazy = false,
+	-- },
 }
 local opts = {}
 require("lazy").setup(plugins, opts)

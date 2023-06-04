@@ -17,3 +17,5 @@ require("aashish.plugins.lsp.lsplines")
 
 require("aashish.plugins.autopairs")
 require("aashish.plugins.treesitter")
+
+require("aashish.plugins.nordic")
