@@ -8,5 +8,5 @@ nordic.setup({
 })
 
 config = function()
-	vim.cmd("colorscheme nordic")
+	require("nordic").load()
 end

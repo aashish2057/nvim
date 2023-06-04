@@ -17,13 +17,19 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
 	-- plugin that many other plugins use
 	"nvim-lua/plenary.nvim",
-
 	-- Color Scheme when you get bored use kanagawa
+	-- TODO; make transparent for catppuccin and kanagawa
 	{
-		--	"catppuccin/nvim",
-		--	name = "catppuccin",
-		-- "rebelot/kanagawa.nvim",
-		-- name = "kanagawa",
+		"catppuccin/nvim",
+		lazy = false,
+	},
+
+	{
+		"rebelot/kanagawa",
+		lazy = false,
+	},
+
+	{
 		"AlexvZyl/nordic.nvim",
 		lazy = false,
 		priority = 1000,
@@ -118,12 +124,6 @@ local plugins = {
 
 	-- lsp lines for better error messages
 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-
-	-- turn background transparent
-	-- {
-	-- 	"xiyaowong/transparent.nvim",
-	-- 	lazy = false,
-	-- },
 }
 local opts = {}
 require("lazy").setup(plugins, opts)
