@@ -22,21 +22,16 @@ local plugins = {
 	{
 		--	"catppuccin/nvim",
 		--	name = "catppuccin",
-		"rebelot/kanagawa.nvim",
-		name = "kanagawa",
+		-- "rebelot/kanagawa.nvim",
+		-- name = "kanagawa",
+		"AlexvZyl/nordic.nvim",
+		name = nordic,
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme kanagawa]])
+			vim.cmd([[colorscheme nordic]])
 		end,
-	},
-
-	-- allow for quickly add quotes parenthesis and others arround things
-	"tpope/vim-surround",
-
-	-- allow replacing words with what is copied
-	"vim-scripts/ReplaceWithRegister",
-
+	}, -- allow for quickly add quotes parenthesis and others arround things "tpope/vim-surround", allow replacing words with what is copied "vim-scripts/ReplaceWithRegister",
 	-- makes commenting easier
 	"numToStr/Comment.nvim",
 
