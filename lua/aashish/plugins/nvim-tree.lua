@@ -21,5 +21,4 @@ nvimtree.setup({
 	filters = {
 		dotfiles = false,
 	},
-	transparent_background = false,
 })

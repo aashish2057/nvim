@@ -1,6 +1,5 @@
 require("aashish.core.options")
 require("aashish.core.keymaps")
---require("aashish.core.colorscheme")
 
 require("aashish.plugins-setup")
 require("aashish.plugins.comment")
@@ -18,4 +17,6 @@ require("aashish.plugins.lsp.lsplines")
 require("aashish.plugins.autopairs")
 require("aashish.plugins.treesitter")
 
-require("aashish.plugins.nordic")
+require("aashish.plugins.themes.nordic")
+require("aashish.plugins.themes.kanagawa")
+require("aashish.plugins.themes.catppuccin")

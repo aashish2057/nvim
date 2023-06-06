@@ -21,18 +21,17 @@ local plugins = {
 	-- TODO; make transparent for catppuccin and kanagawa
 	{
 		"catppuccin/nvim",
-		lazy = false,
+		name = catppuccin,
 	},
 
 	{
-		"rebelot/kanagawa",
+		"rebelot/kanagawa.nvim",
 		lazy = false,
+		priority = 1000,
 	},
 
 	{
 		"AlexvZyl/nordic.nvim",
-		lazy = false,
-		priority = 1000,
 	}, -- allow for quickly add quotes parenthesis and others arround things "tpope/vim-surround", allow replacing words with what is copied "vim-scripts/ReplaceWithRegister",
 	-- makes commenting easier
 	"numToStr/Comment.nvim",
