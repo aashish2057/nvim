@@ -19,4 +19,3 @@ require("aashish.plugins.treesitter")
 
 require("aashish.plugins.themes.nordic")
 require("aashish.plugins.themes.kanagawa")
-require("aashish.plugins.themes.catppuccin")

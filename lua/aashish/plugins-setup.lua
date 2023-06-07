@@ -22,12 +22,19 @@ local plugins = {
 	{
 		"catppuccin/nvim",
 		name = catppuccin,
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("catppuccin").setup({
+				flavor = mocha,
+				transparent_background = true,
+			})
+			vim.cmd.colorscheme("catppuccin-mocha")
+		end,
 	},
 
 	{
 		"rebelot/kanagawa.nvim",
-		lazy = false,
-		priority = 1000,
 	},
 
 	{
