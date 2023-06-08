@@ -34,6 +34,19 @@ local plugins = {
 	},
 
 	{
+		"folke/tokyonight.nvim",
+		-- lazy = false,
+		-- priority = 1000,
+		-- config = function()
+		-- 	require("tokyonight").setup({
+		-- 		style = "night",
+		-- 		transparent = true,
+		-- 	})
+		-- 	vim.cmd.colorscheme("tokyonight")
+		-- end,
+	},
+
+	{
 		"rebelot/kanagawa.nvim",
 	},
 
@@ -130,6 +143,12 @@ local plugins = {
 
 	-- lsp lines for better error messages
 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+
+	-- trouble list
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 }
 local opts = {}
 require("lazy").setup(plugins, opts)
