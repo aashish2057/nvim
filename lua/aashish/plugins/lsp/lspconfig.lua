@@ -70,6 +70,11 @@ lspconfig["yamlls"].setup({
 	on_attach = on_attach,
 })
 
+lspconfig["zls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 lspconfig["gopls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
