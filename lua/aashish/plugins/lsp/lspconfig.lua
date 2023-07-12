@@ -33,6 +33,11 @@ end
 -- used to enable autocompletion
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+lspconfig["clangd"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 lspconfig["html"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -78,6 +83,16 @@ lspconfig["zls"].setup({
 lspconfig["gopls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	cmd = { "gopls" },
+	settings = {
+		gopls = {
+			completeUnimported = true,
+			usePlaceholders = true,
+			analyses = {
+				unusedparams = true,
+			},
+		},
+	},
 })
 
 lspconfig["pyright"].setup({

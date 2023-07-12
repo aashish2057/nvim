@@ -48,6 +48,9 @@ mason_null_ls.setup({
 		"mypy", -- .py linter
 		"black", -- .py formatter
 		"rustfmt", -- .rs linter
+		"gofmt",
+		"gopls",
+		"goimports_reviser",
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,
